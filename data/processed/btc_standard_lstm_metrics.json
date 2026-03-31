@@ -1,0 +1,48 @@
+{
+  "model_type": "LSTM",
+  "framework": "TensorFlow Keras",
+  "sequence_length": 60,
+  "forecast_horizon_periods": 30,
+  "feature_count": 12,
+  "features": [
+    "btc_return_1d_scaled",
+    "dxy_return_1d_scaled",
+    "eth_return_1d_scaled",
+    "gold_return_1d_scaled",
+    "nasdaq_return_1d_scaled",
+    "oil_brent_return_1d_scaled",
+    "oil_wti_return_1d_scaled",
+    "sp500_return_1d_scaled",
+    "us10y_return_1d_scaled",
+    "us2y_return_1d_scaled",
+    "vix_return_1d_scaled",
+    "btc_volume_change_1d_scaled"
+  ],
+  "epochs_requested": 20,
+  "epochs_ran": 20,
+  "best_validation_loss": 0.03411871939897537,
+  "train": {
+    "count": 999,
+    "mae": 0.060905274003744125,
+    "rmse": 0.07820302248001099,
+    "mape": 1.93870210647583,
+    "directional_accuracy": 0.9319319319319319,
+    "correlation": 0.9752929874147284
+  },
+  "validation": {
+    "count": 233,
+    "mae": 0.15644001960754395,
+    "rmse": 0.1847125142812729,
+    "mape": 4.189577579498291,
+    "directional_accuracy": 0.721030042918455,
+    "correlation": 0.49339121457715646
+  },
+  "test": {
+    "count": 234,
+    "mae": 0.23152554035186768,
+    "rmse": 0.30255964398384094,
+    "mape": 2.313924789428711,
+    "directional_accuracy": 0.5170940170940171,
+    "correlation": -0.29172744275716084
+  }
+}

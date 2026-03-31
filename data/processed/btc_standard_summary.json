@@ -1,0 +1,236 @@
+{
+  "as_of_date": "2024-01-19",
+  "core_asset": "btc",
+  "close": 41618.40625,
+  "accumulation_score": 33.09,
+  "signal_zone": "Macro Headwind",
+  "valuation_score": 22.57,
+  "macro_score": 47.2,
+  "participation_score": 35.26,
+  "drawdown": -0.384,
+  "distance_to_trend": 0.3142,
+  "macro_support_score": 0.4822,
+  "gap_purge": {
+    "macro_gap_purge_days": 0,
+    "rows_before_purge": 3412,
+    "rows_after_purge": 1556,
+    "rows_removed_by_gap_purge": 1856,
+    "per_asset_purged_rows": {
+      "dxy": 1063,
+      "eth": 0,
+      "gold": 1065,
+      "nasdaq": 1062,
+      "oil_brent": 1063,
+      "oil_wti": 1064,
+      "sp500": 1062,
+      "us10y": 1063,
+      "us2y": 1063,
+      "vix": 1062
+    }
+  },
+  "split_summary": {
+    "train": {
+      "rows": 1088,
+      "ratio": 0.6997,
+      "start_date": "2017-11-10",
+      "end_date": "2022-03-10"
+    },
+    "validation": {
+      "rows": 233,
+      "ratio": 0.1498,
+      "start_date": "2022-03-11",
+      "end_date": "2023-02-13"
+    },
+    "test": {
+      "rows": 234,
+      "ratio": 0.1505,
+      "start_date": "2023-02-14",
+      "end_date": "2024-01-19"
+    }
+  },
+  "scaler_fit_split": "train",
+  "buy_signal": {
+    "latest_is_active": false,
+    "latest_signal_date": "2022-12-05",
+    "signal_count": 48
+  },
+  "lstm": {
+    "metrics": {
+      "model_type": "LSTM",
+      "framework": "TensorFlow Keras",
+      "sequence_length": 60,
+      "forecast_horizon_periods": 30,
+      "feature_count": 12,
+      "features": [
+        "btc_return_1d_scaled",
+        "dxy_return_1d_scaled",
+        "eth_return_1d_scaled",
+        "gold_return_1d_scaled",
+        "nasdaq_return_1d_scaled",
+        "oil_brent_return_1d_scaled",
+        "oil_wti_return_1d_scaled",
+        "sp500_return_1d_scaled",
+        "us10y_return_1d_scaled",
+        "us2y_return_1d_scaled",
+        "vix_return_1d_scaled",
+        "btc_volume_change_1d_scaled"
+      ],
+      "epochs_requested": 20,
+      "epochs_ran": 20,
+      "best_validation_loss": 0.03411871939897537,
+      "train": {
+        "count": 999,
+        "mae": 0.060905274003744125,
+        "rmse": 0.07820302248001099,
+        "mape": 1.93870210647583,
+        "directional_accuracy": 0.9319319319319319,
+        "correlation": 0.9752929874147284
+      },
+      "validation": {
+        "count": 233,
+        "mae": 0.15644001960754395,
+        "rmse": 0.1847125142812729,
+        "mape": 4.189577579498291,
+        "directional_accuracy": 0.721030042918455,
+        "correlation": 0.49339121457715646
+      },
+      "test": {
+        "count": 234,
+        "mae": 0.23152554035186768,
+        "rmse": 0.30255964398384094,
+        "mape": 2.313924789428711,
+        "directional_accuracy": 0.5170940170940171,
+        "correlation": -0.29172744275716084
+      }
+    },
+    "latest_forecast": {
+      "forecast_date": "2024-01-19",
+      "forecast_horizon_periods": 30,
+      "predicted_forward_return": 0.2576957941055298,
+      "predicted_direction": "Bullish"
+    },
+    "target_column": "btc_forward_return_30p",
+    "prediction_column": "btc_lstm_pred_forward_return_30p",
+    "sequence_length": 60,
+    "forecast_horizon_periods": 30
+  },
+  "strongest_tailwinds": [
+    "NASDAQ",
+    "S&P 500",
+    "US Dollar Index"
+  ],
+  "strongest_headwinds": [],
+  "drivers": [
+    {
+      "asset": "nasdaq",
+      "label": "NASDAQ",
+      "direction": "Tailwind when rising",
+      "weight": 1.15,
+      "latest_return": 0.016958373056834786,
+      "latest_scaled_return": 1.079191594084895,
+      "latest_contribution": 1.2410703331976292,
+      "rolling_correlation": 0.048927739909896635,
+      "thesis": "Growth-heavy equity strength often aligns with higher crypto beta demand."
+    },
+    {
+      "asset": "sp500",
+      "label": "S&P 500",
+      "direction": "Tailwind when rising",
+      "weight": 1.0,
+      "latest_return": 0.012313502764936146,
+      "latest_scaled_return": 0.8908529116420538,
+      "latest_contribution": 0.8908529116420538,
+      "rolling_correlation": 0.03102065457877799,
+      "thesis": "Higher equity risk appetite often coincides with stronger crypto flows."
+    },
+    {
+      "asset": "dxy",
+      "label": "US Dollar Index",
+      "direction": "Headwind when rising",
+      "weight": 1.15,
+      "latest_return": -0.0024145257657856023,
+      "latest_scaled_return": -0.6704777811756079,
+      "latest_contribution": 0.771049448351949,
+      "rolling_correlation": 0.02483575696475402,
+      "thesis": "A stronger dollar typically tightens global liquidity and pressures crypto multiples."
+    },
+    {
+      "asset": "vix",
+      "label": "VIX",
+      "direction": "Headwind when rising",
+      "weight": 1.1,
+      "latest_return": -0.058740263056175857,
+      "latest_scaled_return": -0.6627271732989523,
+      "latest_contribution": 0.7289998906288475,
+      "rolling_correlation": -0.16297210723616826,
+      "thesis": "Rising volatility stress usually reflects falling risk appetite across markets."
+    },
+    {
+      "asset": "gold",
+      "label": "Gold",
+      "direction": "Tailwind when rising",
+      "weight": 0.35,
+      "latest_return": 0.003913615629451028,
+      "latest_scaled_return": 0.3618009065337498,
+      "latest_contribution": 0.12663031728681243,
+      "rolling_correlation": -0.19776879449088297,
+      "thesis": "Gold can act as a partial store-of-value proxy, but the relationship is weaker than equities or DXY."
+    },
+    {
+      "asset": "oil_brent",
+      "label": "Brent Crude",
+      "direction": "Headwind when rising",
+      "weight": 0.45,
+      "latest_return": -0.0068268132230623335,
+      "latest_scaled_return": -0.279445450759991,
+      "latest_contribution": 0.12575045284199596,
+      "rolling_correlation": -0.22371429768818768,
+      "thesis": "Higher oil can feed inflation pressure and keep policy tighter for longer."
+    },
+    {
+      "asset": "eth",
+      "label": "ETH",
+      "direction": "Tailwind when rising",
+      "weight": 0.95,
+      "latest_return": 0.009112105809166549,
+      "latest_scaled_return": 0.08349636379642003,
+      "latest_contribution": 0.07932154560659903,
+      "rolling_correlation": 0.730792011024993,
+      "thesis": "ETH often behaves as a higher-beta crypto proxy for risk appetite inside the asset class."
+    },
+    {
+      "asset": "oil_wti",
+      "label": "WTI Crude",
+      "direction": "Headwind when rising",
+      "weight": 0.45,
+      "latest_return": -0.009044251517073332,
+      "latest_scaled_return": -0.06381379802612606,
+      "latest_contribution": 0.02871620911175673,
+      "rolling_correlation": -0.22776750041379626,
+      "thesis": "Higher oil can feed inflation pressure and keep policy tighter for longer."
+    },
+    {
+      "asset": "us2y",
+      "label": "US 2Y Yield",
+      "direction": "Headwind when rising",
+      "weight": 0.8,
+      "latest_return": -0.0003845875220881423,
+      "latest_scaled_return": -0.007103864310131417,
+      "latest_contribution": 0.005683091448105134,
+      "rolling_correlation": 0.1346277388707914,
+      "thesis": "Higher front-end yields often signal tighter policy and a less supportive macro backdrop."
+    },
+    {
+      "asset": "us10y",
+      "label": "US 10Y Yield",
+      "direction": "Headwind when rising",
+      "weight": 0.9,
+      "latest_return": 0.0004825904960741312,
+      "latest_scaled_return": -0.004866637460604766,
+      "latest_contribution": 0.00437997371454429,
+      "rolling_correlation": 0.07641423036031868,
+      "thesis": "Higher long-end yields can pressure long-duration and liquidity-sensitive assets."
+    }
+  ],
+  "narrative": "As of 2024-01-19, BTC sits in the 'Macro Headwind' zone with an accumulation score of 33.1/100. Current valuation stress is 22.6, macro support is 47.2, and participation is 35.3. Gap purge is active at 0 stale day(s), removing 1856 row(s). The LSTM forecasts the next 30 aligned period(s) from a 60-step history window. The dataset is split chronologically into train/validation/test at 69.97%/14.98%/15.05%. Combined buy signals have triggered 48 time(s). Leading tailwinds: NASDAQ, S&P 500, US Dollar Index. Leading headwinds: none."
+}
